@@ -6,7 +6,7 @@ pipeline {
         stage('scm') {
             steps {
                  dir("$WORKSPACE/azure-voting-app-redis") {
-                    git branch: 'master', url: 'https://github.com/einavle/azure-voting-app-redis'
+                    git  url: 'https://github.com/einavle/azure-voting-app-redis'
                  }
             }
         }
