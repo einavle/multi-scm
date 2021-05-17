@@ -10,11 +10,9 @@ pipeline {
                      echo "git branch is ${env.GIT_BRANCH}"
                      git branch: '**', url:  'https://github.com/einavle/azure-voting-app-redis'
                  }
-                 script{
-                         for(e in env){
-                             echo e + " is " + ${e}
-                            }
-                     }
+                 for(e in env){
+                     echo e + " is " + ${e}
+                    }
             }
         }
         stage('scm 2') {
