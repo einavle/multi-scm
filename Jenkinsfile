@@ -8,8 +8,11 @@ pipeline {
             steps {
                  dir("$WORKSPACE/azure-voting-app-redis") {
                      echo "git branch is ${env.GIT_BRANCH}"
-                     echo "triggered git branch is ${env.BRANCH_NAME}"
+                    
                      git branch: '**', url:  'https://github.com/einavle/azure-voting-app-redis'
+                     echo "triggered git branch is ${env.BRANCH_NAME}"
+                     echo "going to print the envs"
+                     sh 'printenv'
                  }
                 
             }
