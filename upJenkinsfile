@@ -1,3 +1,4 @@
+def branch_to_build
 pipeline {
     agent  {
         label 'master'
@@ -9,7 +10,7 @@ pipeline {
              dir("$WORKSPACE/ernx") {
                  git branch: '**', url:  'https://github.com/einavle/earnix-task'
                //  sh 'printenv'
-                 sh 'git rev-parse --abbrev-ref HEAD'
+                 sh "branch_to_build=$(git rev-parse --abbrev-ref HEAD)"
                  }
                 
             }
@@ -17,7 +18,7 @@ pipeline {
         stage('downstream') {
             steps {
                  build job: "builder", parameters: [
-                    [$class: 'StringParameterValue', name: 'branch_to_build', value: 'master']
+                    [$class: 'StringParameterValue', name: 'branch_to_build', value: "${branch_to_build}"]
                     ]
                 
             }
