@@ -12,6 +12,7 @@ pipeline {
                //  sh 'printenv'
                script{
                  branch_to_build="git rev-parse --abbrev-ref HEAD".execute().text
+                 echo " the branch to build is $branch_to_build"
                  }
                  }
                 
