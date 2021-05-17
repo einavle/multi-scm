@@ -8,7 +8,7 @@ pipeline {
             steps {
                  dir("$WORKSPACE/azure-voting-app-redis") {
                      echo "git branch is ${env.GIT_BRANCH}"
-                     git branch: 'master',  url: 'https://github.com/einavle/azure-voting-app-redis'
+                     git  'https://github.com/einavle/azure-voting-app-redis'
                  }
             }
         }
