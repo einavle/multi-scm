@@ -9,8 +9,7 @@ pipeline {
              dir("$WORKSPACE/ernx") {
                  git branch: '**', url:  'https://github.com/einavle/earnix-task'
                //  sh 'printenv'
-                 sh 'git remote -v'
-                 sh 'git branch'
+                 sh 'git rev-parse --abbrev-ref HEAD'
                  }
                 
             }
