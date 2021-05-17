@@ -7,6 +7,8 @@ pipeline {
          stage('scm') {
             steps {
                  git branch: '**', url:  'https://github.com/einavle/azure-voting-app-redis'
+                 git branch: '**', url:  'https://github.com/einavle/earnix-task'
+                 sh 'printenv'
                 
             }
         }
