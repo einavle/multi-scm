@@ -4,7 +4,13 @@ pipeline {
     }
   
     stages {
-        stage('scm') {
+         stage('scm') {
+            steps {
+                 git branch: '**', url:  'https://github.com/einavle/azure-voting-app-redis'
+                
+            }
+        }
+        stage('downstream') {
             steps {
                  build job: "builder", parameters: [
                     [$class: 'StringParameterValue', name: 'branch_to_build', value: 'master']
@@ -15,3 +21,5 @@ pipeline {
 
     }
 }
+
+ 
