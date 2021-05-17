@@ -20,7 +20,7 @@ pipeline {
         stage('scm 2') {
           steps {
               dir("$WORKSPACE/earnix-task") {
-                git branch: 'master', url: 'https://github.com/einavle/earnix-task'
+                git branch: '**', url: 'https://github.com/einavle/earnix-task'
               }
             }
         }
