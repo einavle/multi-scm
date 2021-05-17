@@ -11,7 +11,8 @@ pipeline {
                  git branch: '**', url:  'https://github.com/einavle/earnix-task'
                //  sh 'printenv'
                script{
-                 branch_to_build="git rev-parse --abbrev-ref HEAD".execute()
+               println "the branch to build is "+ "git rev-parse --abbrev-ref HEAD".execute().text
+                 branch_to_build="git rev-parse --abbrev-ref HEAD".execute().text
                  echo " the branch to build is $branch_to_build"
                  }
                  }
