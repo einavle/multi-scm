@@ -6,6 +6,7 @@ pipeline {
     stages {
          stage('scm') {
             steps {
+                 cleanWS()
                  git branch: '**', url:  'https://github.com/einavle/earnix-task'
                //  sh 'printenv'
                  sh 'git remote -v'
