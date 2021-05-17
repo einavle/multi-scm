@@ -1,0 +1,17 @@
+pipeline {
+    agent  {
+        label 'master'
+    }
+  
+    stages {
+        stage('scm') {
+            steps {
+                 build job: "builder", parameters: [
+                    [$class: 'StringParameterValue', name: 'branch_to_build', value: 'master']
+                    ]
+                
+            }
+        }
+
+    }
+}
