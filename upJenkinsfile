@@ -22,8 +22,9 @@ pipeline {
         stage('downstream') {
             steps {
             dir("$WORKSPACE/ernx") {
-            echo "in downstream"
+           script{
                branch_to_build = readFile('branch_to_build.ver').trim()
+               }
                 
                  build job: "builder", parameters: [
                     [$class: 'StringParameterValue', name: 'branch_to_build', value: "${branch_to_build}"]
