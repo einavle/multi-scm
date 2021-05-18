@@ -24,8 +24,8 @@ pipeline {
         stage('downstream') {
             steps {
             dir("$WORKSPACE/ernx") {
-            echo in downstream
-                echo $branch_to_build
+            echo "in downstream"
+                echo "$branch_to_build"
                 
                 // build job: "builder", parameters: [
                 //    [$class: 'StringParameterValue', name: 'branch_to_build', value: "${branch_to_build}"]
