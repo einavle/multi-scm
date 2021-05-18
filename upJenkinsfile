@@ -9,6 +9,10 @@ pipeline {
             steps {
              dir("$WORKSPACE/ernx") {
                  git branch: '**', url:  'https://github.com/einavle/earnix-task'
+                 sh """
+                 br=/$(git rev-parse --abbrev-ref HEAD)
+                 echo $br
+                 """
                  println "the branch to build is "+ "git rev-parse --abbrev-ref HEAD".execute().text 
                //  sh 'printenv'
               
