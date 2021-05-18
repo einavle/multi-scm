@@ -6,15 +6,12 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                 dir("$WORKSPACE/azure-voting-app-redis") {
-                     git branch: "${env.branch_to_build}", url:  'https://github.com/einavle/azure-voting-app-redis'
-                 }
-            }
-             steps {
+             dir("$WORKSPACE/azure-voting-app-redis") {
+                 git branch: "${env.branch_to_build}", url:  'https://github.com/einavle/azure-voting-app-redis'
+             }
               dir("$WORKSPACE/earnix-task") {
                 git branch: "${env.branch_to_build}", url: 'https://github.com/einavle/earnix-task'
               }
-            }
         }
        // stage('scm 2') {
        //   steps {
