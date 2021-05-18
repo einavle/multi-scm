@@ -19,11 +19,10 @@ pipeline {
         stage('downstream') {
             steps {
             dir("$WORKSPACE/ernx") {
-             sh """
-                  branch_to_build=\$(git rev-parse --abbrev-ref HEAD)
-                  """
+                 branch_to_build="git rev-parse --abbrev-ref HEAD".execute().text
+                 println "the branch to build is "+ "git rev-parse --abbrev-ref HEAD".execute().text 
                  build job: "builder", parameters: [
-                    [$class: 'StringParameterValue', name: 'branch_to_build', value: "\$(git rev-parse --abbrev-ref HEAD)"]
+                    [$class: 'StringParameterValue', name: 'branch_to_build', value: "${branch_to_build}"]
                     ]
                     }
                 
