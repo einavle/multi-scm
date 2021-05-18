@@ -10,9 +10,7 @@ pipeline {
              dir("$WORKSPACE/ernx") {
                  git branch: '**', url:  'https://github.com/einavle/earnix-task'
                //  sh 'printenv'
-               sh """
-                  branch_to_build=\$(git rev-parse --abbrev-ref HEAD)
-                  """
+              
                 
                  }
                 
@@ -20,9 +18,14 @@ pipeline {
         }
         stage('downstream') {
             steps {
+            dir("$WORKSPACE/ernx") {
+             sh """
+                  branch_to_build=\$(git rev-parse --abbrev-ref HEAD)
+                  """
                  build job: "builder", parameters: [
                     [$class: 'StringParameterValue', name: 'branch_to_build', value: "${branch_to_build}"]
                     ]
+                    }
                 
             }
         }
