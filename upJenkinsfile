@@ -23,7 +23,7 @@ pipeline {
                   branch_to_build=\$(git rev-parse --abbrev-ref HEAD)
                   """
                  build job: "builder", parameters: [
-                    [$class: 'StringParameterValue', name: 'branch_to_build', value: "$(git rev-parse --abbrev-ref HEAD)"]
+                    [$class: 'StringParameterValue', name: 'branch_to_build', value: "\$(git rev-parse --abbrev-ref HEAD)"]
                     ]
                     }
                 
