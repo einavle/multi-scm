@@ -3,7 +3,7 @@ pipeline {
         label 'master'
     }
   
-    stages {
+   stages {
         stage('scm') {
             steps {
              dir("$WORKSPACE/azure-voting-app-redis") {
@@ -13,6 +13,8 @@ pipeline {
                 git branch: "${env.branch_to_build}", url: 'https://github.com/einavle/earnix-task'
               }
         }
+       }
+      }
        // stage('scm 2') {
        //   steps {
          //     dir("$WORKSPACE/earnix-task") {
@@ -20,5 +22,5 @@ pipeline {
          //     }
         //    }
        // }
-    }
+  //  }
 }
