@@ -15,12 +15,4 @@ pipeline {
         }
        }
       }
-       // stage('scm 2') {
-       //   steps {
-         //     dir("$WORKSPACE/earnix-task") {
-         //       git branch: "${env.branch_to_build}", url: 'https://github.com/einavle/earnix-task'
-         //     }
-        //    }
-       // }
-  //  }
 }
